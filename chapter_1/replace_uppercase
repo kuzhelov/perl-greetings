@@ -1,0 +1,16 @@
+#!/usr/bin/env perl
+
+use 5.010;
+
+@lines = `perldoc -u -f atan2`;
+
+foreach (@lines) {
+	print;
+}
+
+say "-----------------------";
+
+foreach (@lines) {
+	s/\w<([^>]+)>/\U$1/g;
+	print;
+}
