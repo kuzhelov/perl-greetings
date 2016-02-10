@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+use utf8;
+use 5.010;
+
+@names = qw {
+	fred
+	betty
+	barney
+	dino
+	wilma
+	pebbles
+	bamm-bamm
+};
+
+say "The Names are: @names";
+
+chomp(@numbers = <STDIN>);
+
+foreach (@numbers) {
+	say $names[$_-1];
+}

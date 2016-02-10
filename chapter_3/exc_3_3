@@ -1,0 +1,16 @@
+#!/usr/bin/env perl
+
+use utf8;
+use 5.010;
+
+chomp(@lines = <STDIN>);
+
+@sorted = sort @lines;
+
+say '----------------------';
+foreach (@sorted) {
+	say $_;	
+}
+
+say '----------------------';
+say "Sorted lines are: @sorted";

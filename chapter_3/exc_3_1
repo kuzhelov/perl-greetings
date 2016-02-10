@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+
+use utf8;
+
+chomp(@lines = <STDIN>);
+
+@reversed = reverse @lines;
+
+foreach (@reversed) {
+	print "$_\n";
+}
