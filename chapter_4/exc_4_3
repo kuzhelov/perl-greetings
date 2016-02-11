@@ -1,0 +1,36 @@
+#!/usr/bin/env perl
+
+use 5.012;
+
+my @res1 = &above_average(1..10);
+my @res2 = &above_average(1..10, 100);
+
+say "Above average from 1..10 are: @res1";
+say "Above average from 1..10 U 100 is: @res2";
+
+sub above_average {
+	my $average = &average(@_);
+	my @result = ();
+
+	foreach (@_) {
+		if ($_ > $average) {
+			push @result, $_;
+		}
+	}
+
+	@result;
+}
+
+sub average {
+	&total(@_) / @_;
+}
+
+sub total {
+	my $sum = 0;
+
+	foreach (@_) {
+		$sum += $_;
+	}
+
+	$sum;
+}

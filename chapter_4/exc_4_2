@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+
+use 5.012;
+
+sub total {
+	my $result = 0;
+	foreach (@_) {
+		$result += $_;
+	}
+
+	$result;
+}
+
+say "Sum of 1..1000 is: " . &total(1..1000);

@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+
+use 5.012;
+
+sub total {
+	my $result = 0;
+	foreach (@_) {
+		$result += $_;
+	}
+
+	$result;
+}
+
+say "Total is: " . &total(<STDIN>); 

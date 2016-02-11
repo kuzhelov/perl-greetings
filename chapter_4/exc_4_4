@@ -1,0 +1,21 @@
+#!/usr/bin/env perl
+
+use 5.012;
+
+&greet('Fred');
+&greet('Barney');
+&greet('Monica');
+
+sub greet {
+	state $last_greeted_name = '';
+	my ($name) = @_;
+
+	say "Hi, $name!" . 
+		($last_greeted_name 
+			? " $last_greeted_name is also here!"  
+			: " You are first here!");
+	
+	$last_greeted_name = $name;
+
+	undef;
+}

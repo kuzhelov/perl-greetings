@@ -1,0 +1,34 @@
+#!/usr/bin/env perl
+
+use 5.012;
+
+&greet('Fred');
+&greet('Barney');
+&greet('Monica');
+
+sub greet {
+	state $names_also_here = "";
+	state $names_also_here_count = 0;
+
+	my ($name) = @_;
+
+	say "Hi, $name!" . 
+		($names_also_here_count
+			? (" $names_also_here" . 
+				(( $names_also_here_count > 1 )
+					? " are" 
+					: " is") .
+				" also here!")  
+			: " You are first here!");
+
+	if ($names_also_here_count) {
+		$names_also_here .= ", $name";
+	}
+	else {
+		$names_also_here .= $name;
+	}
+
+	$names_also_here_count += 1;
+	
+	undef;
+}
